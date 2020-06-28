@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "storybook": "start-storybook -p 3001 -s /public"
   },
   "dependencies": {
     "@styled-system/css": "^5.1.5",
@@ -17,6 +18,11 @@
     "styled-components": "^5.0.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.10.3",
+    "@storybook/addon-a11y": "^5.3.19",
+    "@storybook/addon-docs": "^5.3.19",
+    "@storybook/react": "^5.3.19",
+    "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.8.0",
     "eslint": "^7.3.1",
     "eslint-config-standard": "^14.1.1",

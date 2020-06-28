@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 
 import { Box } from 'components/Box'
 import { Button } from 'components/Button'
 import { H2 } from 'components/Heading'
-import { UserInformation } from 'components/UserInformation'
+import { UserDetails } from 'components/UserDetails'
 
-export const UserSearchResults = ({ results, ...restOfProps }) => {
+export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
   const loadRef = useRef(null)
   const [page, setPage] = useState(1)
+  const hasNextPage = results.length + 1 > page * 10
 
   /**
    * Quick & dirty infinite scroll
@@ -16,7 +17,6 @@ export const UserSearchResults = ({ results, ...restOfProps }) => {
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const isIntersecting = entries[0].isIntersecting
-      const hasNextPage = results.length + 1 > page * 10
 
       if (isIntersecting && hasNextPage) {
         setPage(page + 1)
@@ -30,11 +30,11 @@ export const UserSearchResults = ({ results, ...restOfProps }) => {
 
   return (
     <Box as='section'>
-      <H2 id='results' mb={6}>Results</H2>
+      <H2 id='results' mb={6}>{filter ? `Search results for ${filter}` : 'People'}</H2>
       <Box aria-labelledby='results' as='ul' p={0} role='list'>
         {results && results.slice(0, page * 10).map((user) => {
           return (
-            <UserInformation
+            <UserDetails
               avatar={user.avatar}
               description={user.description}
               key={user.id}
@@ -45,19 +45,22 @@ export const UserSearchResults = ({ results, ...restOfProps }) => {
         })}
       </Box>
       <Button
+        disabled={!hasNextPage}
         onClick={() => setPage(page + 1)}
         mb={10}
         width='100%'
         variant='secondary'
         ref={loadRef}
       >
-        Load more {page}
+        Load more
       </Button>
     </Box>
   )
-}
+})
 
-UserSearchResults.propTypes = {
+SearchResults.displayName = 'SearchResults'
+
+SearchResults.propTypes = {
   /**
    * Used to filter out users by name
    */

@@ -3,7 +3,9 @@ import React, { Fragment } from 'react'
 
 import { Box } from 'components/Box'
 import { Header } from 'components/Header'
-import { UserSearch } from 'components/UserSearch'
+import { H1 } from 'components/Heading'
+import { Text } from 'components/Text'
+import { Search } from 'components/Search'
 
 export default function Home () {
   return (
@@ -14,7 +16,11 @@ export default function Home () {
       </Head>
       <Header mb={24} />
       <Box maxWidth={648} mx='auto' px={6}>
-        <UserSearch />
+        <H1 color='primary' mb={4}>The Person Finder</H1>
+        <Text color='black' mb={12} size='large'>
+          If you just can’t find someone and need to know what they look like, you’ve come to the right place! Just type the name of the person you are looking for below into the search box!
+        </Text>
+        <Search />
       </Box>
     </Fragment>
   )

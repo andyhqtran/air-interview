@@ -1,17 +1,17 @@
 import PropTypes from 'prop-types'
-import React, { forwardRef } from 'react'
+import React, { forwardRef, memo } from 'react'
 
 import { Box } from 'components/Box'
 import { H3 } from 'components/Heading'
 import { Text } from 'components/Text'
 import { UserAvatar } from 'components/UserAvatar'
 
-export const UserInformation = forwardRef(({ avatar, description, name, ...restOfProps }, ref) => {
+export const UserDetails = memo(forwardRef(({ avatar, description, name, ...restOfProps }, ref) => {
   return (
     <Box
       as='li'
       display='grid'
-      gridColumnGap={[3, 6]}
+      gridColumnGap={[4, 6]}
       gridTemplateColumns={['32px 1fr', '96px 1fr']}
       role='listitem'
       {...restOfProps}
@@ -25,11 +25,11 @@ export const UserInformation = forwardRef(({ avatar, description, name, ...restO
       </Box>
     </Box>
   )
-})
+}))
 
-UserInformation.displayName = 'UserInformation'
+UserDetails.displayName = 'UserDetails'
 
-UserInformation.propTypes = {
+UserDetails.propTypes = {
   /**
    * Image path for avatar
    */

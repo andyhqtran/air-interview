@@ -19,7 +19,11 @@ export const StyledSearchField = styled.input(
     paddingRight: 4,
     color: 4,
     fontSize: 2,
-    letterSpacing: 0
+    letterSpacing: 0,
+    '&:focus, &:hover': {
+      backgroundColor: 'white',
+      borderColor: 'primary'
+    }
   }),
   compose(
     layout,
