@@ -1,10 +1,21 @@
-import styled from 'styled-components'
+import Head from 'next/head'
+import React, { Fragment } from 'react'
 
-const Title = styled.h1`
-  font-size: 50px;
-  color: ${({ theme }) => theme.colors.primary};
-`
+import { Box } from 'components/Box'
+import { Header } from 'components/Header'
+import { UserSearch } from 'components/UserSearch'
 
-export default function Home() {
-  return <Title>My page</Title>
+export default function Home () {
+  return (
+    <Fragment>
+      <Head>
+        <title>Person search &middot; Air</title>
+        <meta content='Air interview project' key='description' name='description' />
+      </Head>
+      <Header mb={24} />
+      <Box maxWidth={648} mx='auto' px={6}>
+        <UserSearch />
+      </Box>
+    </Fragment>
+  )
 }
