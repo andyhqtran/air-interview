@@ -45,3 +45,4 @@ npm run storybook
 - If this was pulling from an API, I'd add in a Skeleton component that mimics the overall layout but doesn't contain any data
 - Add in a sidebar that adds in additional filters
 - Add in typeahead and autofill
+- Visual regression and unit testing
