@@ -39,3 +39,8 @@ npm run storybook
 - Reduced heading between page heading and description to prevent it feeling like different sections
 - Added in a label to the search field to provide context into the input field
 - As for responsive, I reduced the avatar width and reduce the description text size.
+
+## Things I'd like to add
+- Search field is stickied to the top of the screen when scrolled and using IntersectionObserver to apply the styles when scrolling
+- If this was pulling from an API, I'd add in a Skeleton component that mimics the overall layout but doesn't contain any data
+- Add in a sidebar that adds in additional filters
