@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import PropTypes from 'prop-types'
 import React, { memo, useEffect, useRef, useState } from 'react'
 
@@ -5,6 +6,28 @@ import { Box } from 'components/Box'
 import { Button } from 'components/Button'
 import { H2 } from 'components/Heading'
 import { UserDetails } from 'components/UserDetails'
+
+const listAnimation = {
+  hidden: {
+  },
+  show: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2
+    }
+  }
+}
+
+const listItemAnimation = {
+  hidden: {
+    opacity: 0,
+    y: 50
+  },
+  show: {
+    opacity: 1,
+    y: 0
+  }
+}
 
 export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
   const loadRef = useRef(null)
@@ -31,19 +54,27 @@ export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
   return (
     <Box as='section'>
       <H2 id='results' mb={6}>{filter ? `Search results for ${filter}` : 'People'}</H2>
-      <Box aria-labelledby='results' as='ul' p={0} role='list'>
-        {results && results.slice(0, page * 10).map((user) => {
+      <motion.div
+        initial='hidden'
+        animate='show'
+        p={0}
+        role='list'
+        variants={listAnimation}
+      >
+        {results && results.slice(0, page * 10).map((user, index) => {
           return (
-            <UserDetails
-              avatar={user.avatar}
-              description={user.description}
-              key={user.id}
-              mb={6}
-              name={user.name}
-            />
+            <motion.div key={index} variants={listItemAnimation}>
+              <UserDetails
+                avatar={user.avatar}
+                description={user.description}
+                key={user.id}
+                mb={6}
+                name={user.name}
+              />
+            </motion.div>
           )
         })}
-      </Box>
+      </motion.div>
       <Button
         disabled={!hasNextPage}
         onClick={() => setPage(page + 1)}
