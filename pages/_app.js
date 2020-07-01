@@ -3,6 +3,8 @@ import { css } from '@styled-system/css'
 import React from 'react'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 
+// import 'react-virtualized/styles.css'
+
 const theme = {
   breakpoints: ['480px', '768px', '1024px', '1280px'],
   colors: {

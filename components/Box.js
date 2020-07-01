@@ -1,5 +1,4 @@
 import propTypes from '@styled-system/prop-types'
-import { pick } from '@styled-system/props'
 import PropTypes from 'prop-types'
 import React, { forwardRef } from 'react'
 
@@ -9,15 +8,14 @@ import { StyledBox } from './Box.styles'
  * A Box component is used in place of div and allows access to
  * styled system props and theme values.
  */
-export const Box = forwardRef(({ as, children, className, onClick, role, ...restOfProps }, ref) => {
+export const Box = forwardRef(({ as, children, className, onClick, ...restOfProps }, ref) => {
   return (
     <StyledBox
       as={as}
       className={className}
       onClick={onClick}
       ref={ref}
-      role={role}
-      {...pick(restOfProps)}
+      {...restOfProps}
     >
       {children}
     </StyledBox>
@@ -49,11 +47,6 @@ Box.propTypes = {
    * onClick event
    */
   onClick: PropTypes.func,
-
-  /**
-   * WAI-ARIA roles (https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles)
-   */
-  role: PropTypes.string,
 
   /**
    * Styled system props

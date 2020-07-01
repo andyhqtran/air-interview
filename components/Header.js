@@ -4,14 +4,13 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { Box } from 'components/Box'
-import { Image } from 'components/Image'
 import { StyledHeader } from './Header.styles'
 
 export const Header = ({ className, ...restOfProps }) => {
   return (
     <StyledHeader className={className} {...pick(restOfProps)}>
       <Box maxWidth={1224} mx='auto' px={6} width='100%'>
-        <Image alt='Air inc.' height={24} src='/air-logo.svg' width='auto' />
+        Team
       </Box>
     </StyledHeader>
   )

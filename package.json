@@ -11,10 +11,12 @@
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
     "@styled-system/props": "^5.1.5",
+    "@styled-system/theme-get": "^5.1.2",
     "next": "latest",
     "polished": "^3.6.5",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
+    "react-virtualized": "^9.21.2",
     "styled-components": "^5.0.0"
   },
   "devDependencies": {

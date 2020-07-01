@@ -4,8 +4,7 @@ import PropTypes from 'prop-types'
 import React from 'react'
 
 import { Box } from 'components/Box'
-import { Text } from 'components/Text'
-import { StyledSearchField } from './SearchField.styles'
+import { StyledSearchField, StyledSearchFieldLabel } from './SearchField.styles'
 
 export const SearchField = ({
   className,
@@ -18,9 +17,9 @@ export const SearchField = ({
 }) => {
   return (
     <Box className={className} {...pick(restOfProps)}>
-      <label htmlFor={id}>
-        <Text fontWeight='semibold' mb={1}>{label}</Text>
-      </label>
+      <StyledSearchFieldLabel htmlFor={id}>
+        {label}
+      </StyledSearchFieldLabel>
       <StyledSearchField
         id={id}
         onChange={onChange}
