@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import PropTypes from 'prop-types'
-import React, { memo, useEffect, useRef, useState } from 'react'
+import * as React from 'react'
 
 import { Box } from 'components/Box'
 import { Button } from 'components/Button'
@@ -29,15 +28,25 @@ const listItemAnimation = {
   }
 }
 
-export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
-  const loadRef = useRef(null)
-  const [page, setPage] = useState(1)
+export interface SearchResultsProps {
+  filter?: string,
+  results: {
+    avatar: string,
+    description: string,
+    id: number,
+    name: string
+  }[]
+}
+
+export const SearchResults = React.memo<SearchResultsProps>(({ filter, results, ...restOfProps }) => {
+  const loadRef = React.useRef(null)
+  const [page, setPage] = React.useState(1)
   const hasNextPage = results.length + 1 > page * 10
 
   /**
    * Quick & dirty infinite scroll
    */
-  useEffect(() => {
+  React.useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       const isIntersecting = entries[0].isIntersecting
 
@@ -57,7 +66,6 @@ export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
       <motion.div
         initial='hidden'
         animate='show'
-        p={0}
         role='list'
         variants={listAnimation}
       >
@@ -91,22 +99,3 @@ export const SearchResults = memo(({ filter, results, ...restOfProps }) => {
 
 SearchResults.displayName = 'SearchResults'
 
-SearchResults.propTypes = {
-  /**
-   * Used to filter out users by name
-   */
-  filter: PropTypes.string,
-
-  /**
-   * List of results
-   */
-  results: PropTypes.arrayOf(PropTypes.shape({
-    avatar: PropTypes.string,
-    description: PropTypes.string,
-    id: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
-    name: PropTypes.string
-  }))
-}

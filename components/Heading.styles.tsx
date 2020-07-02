@@ -2,7 +2,7 @@ import { css } from '@styled-system/css'
 import styled from 'styled-components'
 import { color, compose, space, typography, variant } from 'styled-system'
 
-export const StyledHeading = styled.h1(
+export const StyledHeading = styled('h1')(
   css({
     margin: 0,
     color: 'black',

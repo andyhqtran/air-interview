@@ -2,7 +2,7 @@ import { css } from '@styled-system/css'
 import styled from 'styled-components'
 import { color, compose, space, typography, variant } from 'styled-system'
 
-export const StyledText = styled.p(
+export const StyledText = styled('p')(
   {
     margin: 0
   },

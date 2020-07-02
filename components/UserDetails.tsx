@@ -1,15 +1,25 @@
-import PropTypes from 'prop-types'
-import React, { forwardRef, memo } from 'react'
+import * as React from 'react'
+import { SpaceProps } from 'styled-system'
 
 import { Box } from 'components/Box'
 import { H3 } from 'components/Heading'
 import { Text } from 'components/Text'
 import { UserAvatar } from 'components/UserAvatar'
 
-export const UserDetails = memo(forwardRef(({ avatar, description, name, ...restOfProps }, ref) => {
+export interface UserDetailsProps extends SpaceProps {
+  avatar?: string,
+  description?: string,
+  name?: string,
+}
+
+export const UserDetails: React.FunctionComponent<UserDetailsProps> = ({
+  avatar,
+  description,
+  name,
+  ...restOfProps
+}) => {
   return (
     <Box
-      as='li'
       display='grid'
       gridColumnGap={[4, 6]}
       gridTemplateColumns={['32px 1fr', '96px 1fr']}
@@ -25,23 +35,6 @@ export const UserDetails = memo(forwardRef(({ avatar, description, name, ...rest
       </Box>
     </Box>
   )
-}))
+}
 
 UserDetails.displayName = 'UserDetails'
-
-UserDetails.propTypes = {
-  /**
-   * Image path for avatar
-   */
-  avatar: PropTypes.string,
-
-  /**
-   * Description of the user
-   */
-  description: PropTypes.string,
-
-  /**
-   * Name of the user
-   */
-  name: PropTypes.string
-}
