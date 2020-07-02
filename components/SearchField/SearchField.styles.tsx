@@ -3,7 +3,22 @@ import { transitions } from 'polished'
 import styled from 'styled-components'
 import { compose, layout, space } from 'styled-system'
 
-export const StyledSearchField = styled.input(
+import { SearchFieldProps, SearchFieldInputProps, SearchFieldLabelProps } from './SearchField.types'
+
+export const StyledSearchField = styled('div')<SearchFieldProps>(
+  compose(
+    layout,
+    space
+  )
+)
+
+export const StyledSearchFieldLabel = styled('label')<SearchFieldLabelProps>(
+  css({
+    fontWeight: 'semibold',
+  })
+)
+
+export const StyledSearchFieldInput = styled('input')<SearchFieldInputProps>(
   {
     outline: 'none',
     width: '100%',
@@ -24,9 +39,5 @@ export const StyledSearchField = styled.input(
       backgroundColor: 'white',
       borderColor: 'primary'
     }
-  }),
-  compose(
-    layout,
-    space
-  )
+  })
 )
