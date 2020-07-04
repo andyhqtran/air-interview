@@ -1,8 +1,10 @@
 import { css } from '@styled-system/css'
 import styled from 'styled-components'
-import { color, compose, flexbox, grid, layout, position, space } from 'styled-system'
+import { position, layout, space } from 'styled-system'
 
-export const StyledHeader = styled('header')(
+import { HeaderProps } from './Header.types'
+
+export const StyledHeader = styled('header')<HeaderProps>(
   {
     display: 'flex',
     alignItems: 'center',
@@ -11,15 +13,11 @@ export const StyledHeader = styled('header')(
     boxSizing: 'border-box'
   },
   css({
-    backgroundColor: 'white',
-    borderColor: 'neutral.0'
+    borderBottomColor: 'neutral.1'
   }),
   compose(
-    color,
-    flexbox,
-    grid,
-    layout,
     position,
+    layout,
     space
   )
 )

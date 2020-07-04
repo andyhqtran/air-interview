@@ -5,7 +5,7 @@ import { BoxProps } from './Box.types'
 
 export const StyledBox = styled('div')<BoxProps>(
   {
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
   },
   compose(
     background,
