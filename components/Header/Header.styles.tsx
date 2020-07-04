@@ -1,6 +1,6 @@
 import { css } from '@styled-system/css'
 import styled from 'styled-components'
-import { position, layout, space } from 'styled-system'
+import { compose, position, layout, space } from 'styled-system'
 
 import { HeaderProps } from './Header.types'
 

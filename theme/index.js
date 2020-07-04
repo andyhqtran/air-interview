@@ -1,4 +1,4 @@
-import { rgba } from 'polished'
+import { rem, rgba } from 'polished'
 
 export const theme = {
   breakpoints: ['480px', '768px', '1024px', '1280px'],
@@ -18,7 +18,15 @@ export const theme = {
     white: '#FFFFFF'
   },
   fonts: ['Helvetica, sans-serif', 'Georgia, serif'],
-  fontSizes: [13, 14, 16, 20, 40],
+  fontSizes: [
+    rem(12),
+    rem(14),
+    rem(16),
+    rem(18),
+    rem(21),
+    rem(24),
+    rem(40)
+  ],
   fontWeights: [100, 300, 400, 500, 600, 700, 800, 900],
   letterSpacings: ['-1.5%', '-2%', '2.5%', '3%'],
   radii: [0, 2, 4],

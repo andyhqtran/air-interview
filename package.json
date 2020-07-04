@@ -11,6 +11,7 @@
     "@styled-system/css": "^5.1.5",
     "@styled-system/prop-types": "^5.1.5",
     "@styled-system/props": "^5.1.5",
+    "@styled-system/theme-get": "^5.1.2",
     "framer-motion": "^1.11.1",
     "next": "latest",
     "polished": "^3.6.5",

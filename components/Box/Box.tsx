@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react'
+import * as React from 'react'
 
 import { StyledBox } from './Box.styles'
-import { BoxProps } from './Box.types'
+import { BoxProps, BoxRef } from './Box.types'
 
-export const Box: FunctionComponent<BoxProps> = (props) => (
-  <StyledBox {...props} />
-)
+export const Box = React.forwardRef<BoxRef, BoxProps>((props, ref) => (
+  <StyledBox ref={ref} {...props} />
+))
